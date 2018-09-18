@@ -31,7 +31,7 @@ message Comment {
     Vote vote = 5;
     uint32 like = 6;
     Comment sub = 7;
-    map<string, string> meta = 8;
+    map<string, google.protobuf.Any> meta = 8;
 }
 
 message GetCommentsReq {
