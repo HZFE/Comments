@@ -6,7 +6,7 @@ import "google/protobuf/any.proto";
 import "google/api/annotations.proto";
 
 message User {
-    int32 uid = 1;
+    uint32 uid = 1;
     string name = 2;
     string avatar = 3;
     string email = 4;
@@ -14,8 +14,8 @@ message User {
 }
 
 message Vote {
-    int32 up = 1;
-    int32 down = 2;
+    uint32 up = 1;
+    uint32 down = 2;
 }
 
 message CommentContent {
@@ -24,12 +24,12 @@ message CommentContent {
 }
 
 message Comment {
-    int32 id = 1;
+    uint32 id = 1;
     CommentContent content = 2;
     User user = 3;
-    int32 timestamp = 4;
+    uint32 timestamp = 4;
     Vote vote = 5;
-    int32 like = 6;
+    uint32 like = 6;
     Comment sub = 7;
     map<string, string> meta = 8;
 }
@@ -38,34 +38,34 @@ message GetCommentsReq {
     google.protobuf.Any uuid = 1;
 }
 message GetCommentsRes {
-    int32 code = 1;
+    uint32 code = 1;
     repeated Comment comments = 2;
 }
 
 message AddCommentReq {
-    int32 id = 1; // Parent comment's id
+    uint32 id = 1; // Parent comment's id
     google.protobuf.Any uuid = 2;
     repeated int32 at = 3;
     string content = 4;
     User user = 5;
 }
 message AddCommentRes {
-    int32 code = 1;
+    uint32 code = 1;
 }
 
 message VoteCommentReq {
-    int32 id = 1;
-    int32 type = 2;
+    uint32 id = 1;
+    uint32 type = 2;
 }
 message VoteCommentRes {
-    int32 code = 1;
+    uint32 code = 1;
 }
 
 message LikeCommentReq {
-    int32 id = 1;
+    uint32 id = 1;
 }
 message LikeCommentRes {
-    int32 code = 1;
+    uint32 code = 1;
 }
 
 service CommentService {
